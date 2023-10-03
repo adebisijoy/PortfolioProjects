@@ -9,11 +9,11 @@ FROM [Portfolio Project]..CovidDeaths
 WHERE continent IS NOT NULL
 
 CREATE VIEW HighestInfectionCount AS
-SELECT location, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS 
+SELECT continent, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS 
 HighestPercentPopulationInfected
 FROM [Portfolio Project]..CovidDeaths
 WHERE continent IS NOT NULL
-GROUP BY location, population;
+GROUP BY continent, population;
 
 CREATE VIEW HighestTotalDeathCount AS
 SELECT continent, MAX(CONVERT(FLOAT, total_deaths)) AS HighestTotalDeathCount
