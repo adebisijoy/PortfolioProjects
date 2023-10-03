@@ -148,3 +148,13 @@ WHERE dea.continent IS NOT NULL
 
 SELECT *
 FROM PopulationVaccinated;
+
+-- For Tableau Visualization
+-- We take these out as they are not included in the above queries and want to stay Consistent
+-- European Union is part of Europe
+SELECT location, SUM(new_deaths) AS TotalDeathCount
+FROM [Portfolio Project]..CovidDeaths
+WHERE continent IS NULL
+AND location NOT IN ('World', 'European Union', 'International')
+GROUP BY location
+ORDER BY TotalDeathCount DESC;
