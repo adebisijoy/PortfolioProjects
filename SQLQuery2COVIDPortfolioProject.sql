@@ -38,10 +38,10 @@ FROM [Portfolio Project]..CovidDeaths
 WHERE continent IS NOT NULL AND location LIKE '%igeria%'
 ORDER BY 1,2;
 
-SELECT location, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS HighestPercentPopulationInfected
+SELECT continent, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS HighestPercentPopulationInfected
 FROM [Portfolio Project]..CovidDeaths
 WHERE continent IS NOT NULL
-GROUP BY location, population
+GROUP BY continent, population
 ORDER BY 1,2;
 
 SELECT location, population, MAX(total_cases) AS HighestInfectionCount, MAX((total_cases/population))*100 AS HighestPercentPopulationInfected
