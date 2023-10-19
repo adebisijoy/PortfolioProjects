@@ -187,7 +187,7 @@ SELECT Sa.Customer_id, Sa.Order_date, mu.Product_name, mu.Price,
 FROM Sales Sa
 JOIN menu mu
 	ON Sa.product_id = mu.Product_id
-JOIN members mb
+LEFT JOIN members mb
 	ON Sa.Customer_id = mb.customer_id
 
 -- Rank all things
